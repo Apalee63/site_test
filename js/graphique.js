@@ -159,7 +159,6 @@ options: {
   });
 
 }
-
 function updateValueList(box, chart) {
   const list = box.querySelector(".value-list");
   list.innerHTML = "";
