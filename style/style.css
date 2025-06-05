@@ -90,5 +90,15 @@ body {
     height: 200px !important; /* ou 250px selon ton besoin */
     width: 100% !important;
 }
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-
+.logo {
+    height: 70px;
+    position: absolute;
+    left: 20px;
+}
