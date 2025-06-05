@@ -18,10 +18,10 @@ tfoot {
     text-align: center;
 }
 tbody > tr:nth-of-type(even) {
-    background-color: rgb(124, 141, 207);
+    background-color: rgb(151, 166, 226);
   }
   tbody > tr:nth-of-type(odd) {
-    background-color: rgb(216, 98, 98);
+    background-color: rgb(253, 165, 165);
 }
 button {
     background-color: #3f51b5;
