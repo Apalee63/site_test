@@ -26,7 +26,6 @@
 
 <div style="margin: 20px;">
     <button onclick="ajouterLigne()">Ajouter une ligne</button>
-    <button onclick="supprimerDerniereLigne()">Supprimer la dernière ligne</button>
     <button onclick="reinitialiserTableau()">Réinitialiser le tableau</button>
 </div>
 
@@ -38,6 +37,7 @@
             <th>Prénom</th>
             <th>Email</th>
             <th>Numéro</th>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -50,7 +50,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 Voici un <a href="https://www.youtube.com/watch?v=gJ_G-gxQRRk" target="_blank">tuto</a> utile
                 <a href="https://www.youtube.com/watch?v=gJ_G-gxQRRk" target="_blank">
                     <img class="hover-img" src="https://i.ytimg.com/vi/LkZ-KqxgVQ4/hqdefault.jpg" alt="tuto" style="height:50px; vertical-align:middle; margin-left:10px;">

@@ -18,7 +18,7 @@ tfoot {
     text-align: center;
 }
 tbody > tr:nth-of-type(even) {
-    background-color: rgb(151, 166, 226);
+    background-color: rgb(113, 130, 201);
   }
   tbody > tr:nth-of-type(odd) {
     background-color: rgb(253, 165, 165);
