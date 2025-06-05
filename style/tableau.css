@@ -51,11 +51,3 @@ th.asc::after {
 th:not(.asc)::after {
     content: " 🔽";
 }
-td {
-    white-space: nowrap;      /* Empêche le retour à la ligne */
-    overflow: hidden;         /* Cache le débordement */
-    text-overflow: ellipsis;  /* Ajoute "..." si le texte déborde */
-    max-width: 200px;         /* Limite la largeur max si nécessaire */
-    height: 40px; /* fixe la hauteur pour éviter l'étirement vertical */
-    vertical-align: middle;
-}
