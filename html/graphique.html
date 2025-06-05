@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon site → Graphiques Dynamiques</title>
+    <link rel="icon" href="image/Kirby.png" type="image/png">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/graphique.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/graphique.js" defer></script>
+
+</head>
+<body>
+
+  <header>
+    <h1 style="text-align: center;">Graphiques Dynamiques</h1>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html">Accueil</a>
+    <a href="html/contact.html">Contacts</a>
+    <a href="html/test.html">Test</a>
+    <a href="html/graphique.html">Graphique</a>
+  </nav>
+
+  <main>
+    <form id="chartForm">
+      <input type="text" id="chartName" placeholder="Nom du graphique" required />
+      <select id="chartType">
+        <option value="bar">Barres</option>
+        <option value="line">Lignes</option>
+        <option value="pie">Camembert</option>
+        <option value="doughnut">Donut</option>
+      </select>
+      <button type="submit">Créer un graphique</button>
+      <button type="button" id="deleteAll">Supprimer tous les graphiques</button>
+    </form>
+
+    <div id="chartsContainer" class="grid-container"></div>
+  </main>
+
+  <footer>
+    <p class="footer">
+      Le site de <a href="https://soeman.fr/" target="_blank">Soeman</a>
+      <img src="https://soeman.fr/wp-content/uploads/2021/04/SoemanGroup_icone-etoile-seule.png" style="height:23px; vertical-align:middle; margin-left:10px;">
+    </p>
+  </footer>
+
+  <script src="js/graphique.js"></script>
+</body>
+</html>

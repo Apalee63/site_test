@@ -1,0 +1,53 @@
+table {
+    width: 75%;
+    margin: auto;
+    border-collapse: collapse;
+    /*background-color: #704ff7;*/
+}
+th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+thead {
+    background-color: #b8c2ae;
+}
+tfoot {
+    background-color: #b8c2ae;
+    font-weight: bold;
+    text-align: center;
+}
+tbody > tr:nth-of-type(even) {
+    background-color: rgb(124, 141, 207);
+  }
+  tbody > tr:nth-of-type(odd) {
+    background-color: rgb(216, 98, 98);
+}
+button {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background-color: #fff;
+    color: #3f51b5;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+th.asc::after {
+    content: " 🔼";
+}
+th:not(.asc)::after {
+    content: " 🔽";
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/Bouton.css">
+    <title>Mot de passe requis</title>
+    <link rel="icon" href="image/Kirby.png" type="image/png">
+
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Accès sécurisé</h2>
+        <input type="password" id="motdepasse" placeholder="Entrez le mot de passe">
+        <br>
+        <button id="validerBtn" onclick="verifierMotDePasse()">Valider</button>
+        <button onclick="retour()">Retour</button>
+        <p id="messageErreur" class="error"></p>
+    </div>
+
+    <script>
+        const motDePasseCorrect = "Soeman";
+
+        function verifierMotDePasse() {
+            const saisie = document.getElementById("motdepasse");
+            const bouton = document.getElementById("validerBtn");
+            const messageErreur = document.getElementById("messageErreur");
+
+            // Réinitialiser les classes
+            saisie.classList.remove("valid", "shake");
+            bouton.classList.remove("flash");
+
+            if (saisie.value === motDePasseCorrect) {
+                messageErreur.textContent = "";
+                saisie.classList.add("valid");
+                bouton.classList.add("flash");
+
+                setTimeout(() => {
+                    window.location.href = "surprise.html";
+                }, 800);
+            } else {
+                messageErreur.textContent = "Mot de passe incorrect.";
+                saisie.classList.add("shake");
+
+                // Supprimer la classe après l’animation pour pouvoir la rejouer
+                setTimeout(() => {
+                    saisie.classList.remove("shake");
+                }, 300);
+            }
+        }
+
+        function retour() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

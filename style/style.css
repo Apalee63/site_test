@@ -1,0 +1,94 @@
+.header-title {
+    background-color: #3f51b5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+.navbar {
+    background-color: #6573c3;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+.navbar a {
+    background-color: #ffffff;
+    color: #3f51b5;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.hover-img {
+    height: 50px;
+    vertical-align: middle;
+    margin-left: 10px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+.hover-img2 {
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-img2:hover {
+    transform: s    cale(1.03);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.invisible-link {
+    text-decoration: none;      /* enlève le soulignement */
+    cursor: text;            /* ne change pas le curseur */
+    color: black;
+}
+
+/* Footer fixé en bas */
+.footer {
+    position: fixed;      /* fixe le footer à la position spécifiée */
+    bottom: 0;            /* toujours collé au bas de la fenêtre */
+    left: 0;
+    width: 100%;          /* occupe toute la largeur */
+    background-color: #888; /* gris (ajustez selon préférence) */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;        
+}
+
+body {
+    margin: 0;
+    padding-bottom: 50px;
+    font-family: sans-serif; 
+    font-size: 19px;
+}
+
+.para {
+    text-align: center;
+    font-size: 22px;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-top: 75px;
+}
+.chart-container canvas {
+    height: 200px !important; /* ou 250px selon ton besoin */
+    width: 100% !important;
+}
+
+

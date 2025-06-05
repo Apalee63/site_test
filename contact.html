@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon site -> Contacts</title>
+    <link rel="stylesheet" href="html/style/style.css">
+    <link rel="stylesheet" href="style/tableau.css">
+    <link rel="icon" href="image/Kirby.png" type="image/png">
+
+</head>
+<body>
+
+<header>
+    <h1 style="text-align:center;">Liste des Contacts</h1>
+</header>
+
+<nav class="navbar">
+    <a href="index.html">Accueil</a>
+    <a href="html/contact.html">Contacts</a>
+    <a href="html/test.html">Test</a>
+    <a href="html/graphique.html">Graphique</a>
+  </nav>
+
+<div style="margin: 20px;">
+    <button onclick="ajouterLigne()">Ajouter une ligne</button>
+    <button onclick="supprimerDerniereLigne()">Supprimer la dernière ligne</button>
+    <button onclick="reinitialiserTableau()">Réinitialiser le tableau</button>
+</div>
+
+
+<table id="contactsTable">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Numéro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                Voici un <a href="https://www.youtube.com/watch?v=gJ_G-gxQRRk" target="_blank">tuto</a> utile
+                <a href="https://www.youtube.com/watch?v=gJ_G-gxQRRk" target="_blank">
+                    <img class="hover-img" src="https://i.ytimg.com/vi/LkZ-KqxgVQ4/hqdefault.jpg" alt="tuto" style="height:50px; vertical-align:middle; margin-left:10px;">
+                </a>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<footer class="footer">
+    <p style="font-size: 20px;">
+        Le site de <a href="https://soeman.fr/" target="_blank">Soeman</a>
+        <a href="https://soeman.fr/" target="_blank">
+            <img class="hover-img2" src="https://soeman.fr/wp-content/uploads/2021/04/SoemanGroup_icone-etoile-seule.png" alt="soeman" style="height:23px; vertical-align:middle; margin-left:10px;">
+        </a>
+    </p>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+
+</body>
+</html>

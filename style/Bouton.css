@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    background-color: #f4f4f4;
+}
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+input.valid {
+    border-color: #3f51b5;
+    background-color: #bbc4f5;
+}
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3f51b5;
+    color: white;
+    border: 1px solid #ccc ;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+button:hover {
+    background-color: #fff;
+    color: #3f51b5;
+    transform: scale(1.05);
+    
+}
+.error {
+    color: red;
+    margin-top: 15px;
+}
+/* Animation de validation */
+@keyframes flashSuccess {
+    0%, 100% { background-color: #3f51b5; }
+    50% { background-color: #7b8ce9; }
+}
+.flash {
+    animation: flashSuccess 0.5s ease-in-out 2;
+}
+/* Animation d'erreur (tremblement) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+.shake {
+    animation: shake 0.3s ease;
+}
