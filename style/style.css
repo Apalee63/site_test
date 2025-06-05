@@ -87,7 +87,7 @@ body {
     padding-top: 75px;
 }
 .chart-container canvas {
-    height: 200px !important; /* ou 250px selon ton besoin */
+    height: 200px !important;
     width: 100% !important;
 }
 .header-container {
@@ -95,6 +95,8 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: #ddd;
+    color: black;
 }
 
 .logo {
