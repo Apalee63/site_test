@@ -145,7 +145,6 @@
   border-radius: 3px;
 }
 
-/* Responsive : sur petits écrans, on passe en colonne */
 @media (max-width: 800px) {
   .bloc-main {
     flex-direction: column;
