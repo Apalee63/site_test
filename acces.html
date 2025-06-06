@@ -15,46 +15,48 @@
     <h1>Accès</h1>
   </div>
 </header>
+<div id="nav"></div>
 
-<nav class="navbar">
-    <a href="index.html">Accueil</a>
-    <a href="contact.html">Contacts</a>
-    <a href="acces.html">Accès</a>
-    <a href="graphique.html">Statistiques</a>
-</nav>
-<p>Entrez une fois le mot de passe afin de le définir.</p>
-<div class="container">
-    <h2>Accès Agenda</h2>
-    <input type="password" id="motdepasseAgenda" placeholder="Entrez le mot de passe">
-    <button id="validerAgenda" onclick="verifierAcces('agenda')">Valider</button>
-    <p id="erreur_agenda" class="error"></p>
+<main>
+    <p style="text-align:center; margin:20px 0;">
+      Entrez une fois le mot de passe afin de le définir.
+    </p>
 
-    <h4>Changer le mot de passe</h4>
-    <input type="password" id="ancien_agenda" placeholder="Ancien mot de passe">
-    <input type="password" id="nouveau_agenda" placeholder="Nouveau mot de passe">
-    <button onclick="changerMotDePasse('agenda')">Changer</button>
-    <p id="changeErreur_agenda" class="error"></p>
-</div>
+    <!-- On encapsule les deux .container dans un flex parent -->
+    <div class="flex-containers">
+      <!-- Bloc pour l’Agenda -->
+      <div class="container">
+        <h2>Accès Agenda</h2>
+        <input type="password" id="motdepasseAgenda" placeholder="Entrez le mot de passe">
+        <button id="validerAgenda" onclick="verifierAcces('agenda')">Valider</button>
+        <p id="erreur_agenda" class="error"></p>
 
-<div class="container">
-    <h2>Accès Bloc-note</h2>
-    <input type="password" id="motdepasseBloc" placeholder="Entrez le mot de passe">
-    <button id="validerBloc" onclick="verifierAcces('bloc')">Valider</button>
-    <p id="erreur_bloc" class="error"></p>
+        <h4>Changer le mot de passe</h4>
+        <input type="password" id="ancien_agenda" placeholder="Ancien mot de passe">
+        <input type="password" id="nouveau_agenda" placeholder="Nouveau mot de passe">
+        <button onclick="changerMotDePasse('agenda')">Changer</button>
+        <p id="changeErreur_agenda" class="error"></p>
+      </div>
 
-    <h4>Changer le mot de passe</h4>
-    <input type="password" id="ancien_bloc" placeholder="Ancien mot de passe">
-    <input type="password" id="nouveau_bloc" placeholder="Nouveau mot de passe">
-    <button onclick="changerMotDePasse('bloc')">Changer</button>
-    <p id="changeErreur_bloc" class="error"></p>
-</div>
+      <!-- Bloc pour le Bloc-note -->
+      <div class="container">
+        <h2>Accès Bloc-note</h2>
+        <input type="password" id="motdepasseBloc" placeholder="Entrez le mot de passe">
+        <button id="validerBloc" onclick="verifierAcces('bloc')">Valider</button>
+        <p id="erreur_bloc" class="error"></p>
 
-<script src="js/Mdp.js"></script>
+        <h4>Changer le mot de passe</h4>
+        <input type="password" id="ancien_bloc" placeholder="Ancien mot de passe">
+        <input type="password" id="nouveau_bloc" placeholder="Nouveau mot de passe">
+        <button onclick="changerMotDePasse('bloc')">Changer</button>
+        <p id="changeErreur_bloc" class="error"></p>
+      </div>
+    </div>
+  </main>
 
-     <footer class="footer">
-      <p style="font-size: 20px;">Le site de <a href="https://soeman.fr/" target="_blank">Soeman
-      <img class="hover-img2" src="https://soeman.fr/wp-content/uploads/2021/04/SoemanGroup_icone-etoile-seule.png" alt="soeman" style="height:23px; vertical-align:middle; margin-left:10px;"></a>
-  </footer>
+  <div id="footer"></div>
+  <script src="js/include-fragment.js"></script>
+  <script src="js/Mdp.js"></script>
 
 </body>
 </html>

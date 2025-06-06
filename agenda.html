@@ -1,1 +1,60 @@
-<p>Agenda</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/agenda.css">
+    <link rel="icon" href="image/Kirby.png" type="image/png">
+    <title>Mon site-> Agenda</title>
+
+</head>
+<body>
+<header class="header-title">
+  <div class="header-container">
+    <a href="https://soeman.fr/" target="_blank" class="logo"><img src="//tech-ethic.com/wp-content/uploads/2024/08/SoemanGroup_logo-principal_Web.png" alt="soeman_group" class="logo"></a>
+    <h1>Agenda</h1>
+  </div>
+</header>
+
+<div id="nav"></div>
+
+  <main>
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prevMonth">&lt;</button>
+        <h2 id="monthYear"></h2>
+        <button id="nextMonth">&gt;</button>
+      </div>
+      <div class="calendar-grid">
+        <!-- En-tête des jours -->
+        <div class="day-header">Lun</div>
+        <div class="day-header">Mar</div>
+        <div class="day-header">Mer</div>
+        <div class="day-header">Jeu</div>
+        <div class="day-header">Ven</div>
+        <div class="day-header">Sam</div>
+        <div class="day-header">Dim</div>
+        <!-- Les cases de jours seront générées par JS -->
+      </div>
+    </div>
+
+    <!-- MODAL D’ÉVÉNEMENT -->
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h3 id="modalDateTitle">Événement pour le ...</h3>
+        <textarea id="eventText" placeholder="Tapez votre événement ici…"></textarea>
+        <div class="modal-buttons">
+          <button id="deleteEvent">Supprimer</button>
+          <button id="saveEvent">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<div id="footer"></div>
+<script src="js/include-fragment.js"></script>
+<script src="js/agenda.js"></script>
+
+</body>
+</html>

@@ -16,14 +16,8 @@
     <h1>Contacts</h1>
   </div>
 </header>
-
-<nav class="navbar">
-    <a href="index.html">Accueil</a>
-    <a href="contact.html">Contacts</a>
-    <a href="acces.html">Accès</a>
-    <a href="graphique.html">Statistiques</a>
-  </nav>
-
+<div id="nav"></div>
+<main>
 <div style="margin: 20px;">
     <button onclick="ouvrirPopup()">Ajouter un contact</button>
     <button onclick="reinitialiserTableau()">Réinitialiser le tableau</button>
@@ -56,15 +50,6 @@
     </tfoot>
 </table>
 
-<footer class="footer">
-    <p style="font-size: 20px;">
-        Le site de <a href="https://soeman.fr/" target="_blank">Soeman</a>
-        <a href="https://soeman.fr/" target="_blank">
-            <img class="hover-img2" src="https://soeman.fr/wp-content/uploads/2021/04/SoemanGroup_icone-etoile-seule.png" alt="soeman" style="height:23px; vertical-align:middle; margin-left:10px;">
-        </a>
-    </p>
-</footer>
-
 <div id="popupForm" class="popup">
     <div class="popup-content">
         <h2 id="formTitle">Ajouter un contact</h2>
@@ -89,11 +74,11 @@
         </div>
     </div>
 </div>
+</main>
 
-
-<script src="js/scripts.js"></script>
-
-</body>
+    <div id="footer"></div>
+    <script src="js/include-fragment.js"></script>
+    <script src="js/contact.js"></script>
 
 </body>
 </html>

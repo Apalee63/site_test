@@ -1,106 +1,327 @@
-.header-title {
-    background-color: #3f51b5;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    margin: 0;
-}
-.navbar {
-    background-color: #6573c3;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px 0;
-}
-.navbar a {
-    background-color: #ffffff;
-    color: #3f51b5;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar a:hover {
-    background-color: #3f51b5;
-    color: white;
-}
-
-.hover-img {
-    height: 50px;
-    vertical-align: middle;
-    margin-left: 10px;
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.hover-img:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
-}
-.hover-img2 {
-    height: 30px;
-    vertical-align: middle;
-    margin-left: 10px;
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.hover-img2:hover {
-    transform: s    cale(1.03);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.invisible-link {
-    text-decoration: none;      /* enlève le soulignement */
-    cursor: text;            /* ne change pas le curseur */
-    color: black;
-}
-
-/* Footer fixé en bas */
-.footer {
-    position: fixed;      /* fixe le footer à la position spécifiée */
-    bottom: 0;            /* toujours collé au bas de la fenêtre */
-    left: 0;
-    width: 100%;          /* occupe toute la largeur */
-    background-color: #888; /* gris (ajustez selon préférence) */
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000;        
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 19px;
+  line-height: 1.5;
+  background-color: #f4f6fa;
 }
 
 body {
-    margin: 0;
-    padding-bottom: 50px;
-    font-family: sans-serif; 
-    font-size: 19px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.invisible-link {
+  color: white;
+  cursor: text;
+  text-decoration: none;
+}
+
+.header-title {
+  background: linear-gradient(135deg, #3f51b5 0%, #6573c3 100%);
+  color: #fff;
+  padding: 30px 20px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-container .logo {
+  height: 60px;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.header-container .logo:hover {
+  transform: scale(1.05);
+}
+
+.header-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-title h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.navbar {
+  background-color: #6573c3;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.navbar a {
+  background-color: #fff;
+  color: #3f51b5;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+.hero {
+  background: 
+    linear-gradient(rgba(63,81,181,0.8), rgba(63,81,181,0.8)), 
+    url("image/hero_background.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #ffca28;
+  color: #3f51b5;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ffc107;
+  transform: scale(1.05);
+}
+
+.features {
+  padding: 60px 20px;
+  background-color: #f4f6fa;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  color: #3f51b5;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 220px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #3f51b5;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.mission {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mission h2 {
+  font-size: 2rem;
+  color: #3f51b5;
+  margin-bottom: 20px;
+}
+
+.mission p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.hover-img {
+  height: 50px;
+  vertical-align: middle;
+  margin-left: 10px;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.hover-img2 {
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 10px;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-img2:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;  /* Centre horizontalement le footer-container */
+  align-items: center;
+  background: none;         /* On retire le dégradé plein largeur */
+  padding: auto;          /* Espace au-dessus et en-dessous du « petit encadré » */
+  margin-top: auto;         /* Pousse le footer en bas si le contenu est court */
+  width: 100%;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+  background-color: #ffffff;                                    /* Fond blanc pour l’encadré */
+  border: 1px solid rgba(0, 0, 0, 0.1);                          /* Bordure légère */
+  border-radius: 8px;
+  padding: 10px 20px;                                            /* Un petit espace autour du texte */
+  max-width: auto;                                              /* Largeur maximale de l’encadré */
+  width: 100%;                                                    /* 90% sur petits écrans, sinon max-width */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);                       /* Ombre subtile propre à l’encadré */
+}
+
+.footer-container p {
+  margin: 0;
+  font-size: 1rem;
+  color: #3f51b5;        /* On choisit ici une couleur de texte assortie */
+  line-height: 1.4;
+}
+
+.footer-container a {
+  color: #ffca28;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease;
+  margin-left: 4px;
+}
+
+.footer-container a:hover {
+  color: #ffc107;
+  transform: translateY(-2px);
+}
+
+.footer-container img {
+  vertical-align: middle;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-container img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 500px) {
+  .footer-container {
+    max-width: 90%;
+    padding: 8px 12px;
+  }
+  .footer-container p {
+    font-size: 0.9rem;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1; 
 }
 
 .para {
-    text-align: center;
-    font-size: 22px;
-    padding-left: 75px;
-    padding-right: 75px;
-    padding-top: 75px;
-}
-.chart-container canvas {
-    height: 200px !important;
-    width: 100% !important;
-}
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: #ddd;
-    color: black;
+  text-align: center;
+  font-size: 22px;
+  padding: 75px 75px 0 75px;
 }
 
-.logo {
-    height: 70px;
-    position: absolute;
-    left: 20px;
+.chart-container canvas {
+  width: 100% !important;
+  height: 200px !important;
+}
+
+@media (max-width: 600px) {
+  .header-title {
+    padding: 20px 10px;
+  }
+  .header-title h1 {
+    font-size: 1.8rem;
+  }
+  .header-container .logo {
+    height: 50px;
+    margin-right: 10px;
+  }
+  .footer-container p {
+    font-size: 0.9rem;
+  }
 }

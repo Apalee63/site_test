@@ -7,7 +7,7 @@ async function hashSHA256(str) {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Tout le code qui était dans l'IIFE va ici :
-  const masterPasswordHash = "fadce1ead59b403ba6ef0eb95d3b9f1d5b6afaccc64deadb86c04f57a94e2908"; 
+  const masterPasswordHash = "45bb9b3fe63b1b7eccc7a736e61271af19e46f87569321563289498c3320b2b4"; 
   const attempts = { agenda: 0, bloc: 0 };
 
   function afficherMessage(element, message, type) {

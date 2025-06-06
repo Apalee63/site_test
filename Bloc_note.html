@@ -1,1 +1,48 @@
-bloc-note
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/bloc-note.css">
+    <link rel="icon" href="image/Kirby.png" type="image/png">
+    <title>Mon site-> Bloc-note</title>
+
+</head>
+<body>
+<header class="header-title">
+  <div class="header-container">
+    <a href="https://soeman.fr/" target="_blank" class="logo"><img src="//tech-ethic.com/wp-content/uploads/2024/08/SoemanGroup_logo-principal_Web.png" alt="soeman_group" class="logo"></a>
+    <h1>Bloc-note</h1>
+  </div>
+</header>
+
+<div id="nav"></div>
+
+  <main class="bloc-main">
+    <!-- Colonne gauche : liste des notes et bouton "Nouvelle note" -->
+    <aside class="note-sidebar">
+      <button id="newNoteBtn" class="btn-new">＋ Nouvelle note</button>
+      <ul id="notesList" class="notes-list">
+        <!-- Les notes enregistrées seront remplies ici dynamiquement -->
+      </ul>
+    </aside>
+
+    <!-- Colonne droite : édition de la note sélectionnée -->
+    <section class="note-editor">
+      <div class="editor-header">
+        <input type="text" id="noteTitle" placeholder="Titre de la note" />
+        <button id="deleteNoteBtn" class="btn-delete">🗑️ Supprimer</button>
+      </div>
+      <textarea id="noteContent" placeholder="Écrivez vos notes ici…"></textarea>
+      <div class="editor-footer">
+        <button id="saveNoteBtn" class="btn-save">💾 Enregistrer</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="js/include-fragment.js"></script>
+  <script src="js/bloc-note.js"></script>
+
+</body>
+</html>
