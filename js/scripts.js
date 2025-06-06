@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     chargerDepuisLocalStorage();
-    rendreCellulesEditables();
     initialiserTri();
 });
+chargerDepuisLocalStorage();
 
-function rendreCellulesEditables() {
+function reinitialiserTableau() {
+    if (!confirm("Voulez-vous vraiment supprimer tous les contacts ?")) return;
+
+    localStorage.removeItem("contacts");
+
     const tbody = document.querySelector("#contactsTable tbody");
+    tbody.innerHTML = "";
 
-    // Délégation d'événement : fonctionne même pour les nouvelles cellules
-    tbody.addEventListener("input", () => {
-        sauvegarderDansLocalStorage();
-    });
-}
-
-
+    ajouterLigne();
+} 
 function initialiserTri() {
     const table = document.getElementById("contactsTable");
     const headers = table.querySelectorAll("thead th");
@@ -40,103 +40,129 @@ function initialiserTri() {
         });
     });
 }
+   document.addEventListener("DOMContentLoaded", () => {
+    chargerDepuisLocalStorage();
+});
 
-function ajouterLigne() {
-    const table = document.getElementById("contactsTable");
-    const tbody = table.querySelector("tbody");
-    const nbColonnes = table.querySelector("thead tr").children.length - 1; // -1 car on va ajouter une colonne pour le bouton
+let contactEnCours = null; // Pour modification
 
-    const nouvelleLigne = document.createElement("tr");
+function ouvrirPopup(contact = null, index = null) {
+    document.getElementById("formTitle").textContent = contact ? "Modifier un contact" : "Ajouter un contact";
+    document.getElementById("popupForm").style.display = "block";
 
-    for (let i = 0; i < nbColonnes; i++) {
-        const cellule = document.createElement("td");
-        cellule.contentEditable = true;
-        cellule.textContent = "";
-        nouvelleLigne.appendChild(cellule);
-    }
+    // Préremplir si modification
+    document.getElementById("nomInput").value = contact ? contact[0] : "";
+    document.getElementById("prenomInput").value = contact ? contact[1] : "";
+    document.getElementById("emailInput").value = contact ? contact[2] : "";
+    document.getElementById("numeroInput").value = contact ? contact[3] : "";
 
-    const celluleSuppression = document.createElement("td");
-    const bouton = document.createElement("button");
-    bouton.textContent = "🗑️";
-    bouton.onclick = function () {
-        nouvelleLigne.remove();
-        sauvegarderDansLocalStorage();
-    };
-    celluleSuppression.appendChild(bouton);
-    nouvelleLigne.appendChild(celluleSuppression);
-
-    tbody.appendChild(nouvelleLigne);
-    sauvegarderDansLocalStorage();
+    contactEnCours = index;
 }
 
+function fermerPopup() {
+    document.getElementById("popupForm").style.display = "none";
+    contactEnCours = null;
+}
 
-function supprimerDerniereLigne() {
-    const tbody = document.querySelector("#contactsTable tbody");
-    const lignes = tbody.querySelectorAll("tr");
-    if (lignes.length > 0) {
-        tbody.removeChild(lignes[lignes.length - 1]);
-        sauvegarderDansLocalStorage();
+function enregistrerContact() {
+    const nom = document.getElementById("nomInput").value.trim();
+    const prenom = document.getElementById("prenomInput").value.trim();
+    const email = document.getElementById("emailInput").value.trim();
+    const numero = document.getElementById("numeroInput").value.trim();
+
+    if (!nom || !prenom || !email || !numero) {
+        alert("Veuillez remplir tous les champs");
+        return;
+    }
+
+    // Vérification du numéro : chiffres et espaces uniquement
+    const numeroValide = /^[\d\s]+$/.test(numero);
+    if (!numeroValide) {
+        alert("Le numéro ne doit contenir que des chiffres et des espaces.");
+        return;
+    }
+
+    // Vérification de l'email avec regex
+    const emailValide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailValide) {
+        alert("Veuillez entrer une adresse email valide.");
+        return;
+    }
+
+    const contact = [nom, prenom, email, numero];
+    const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+
+    if (contactEnCours !== null) {
+        contacts[contactEnCours] = contact;
     } else {
-        alert("Aucune ligne à supprimer !");
+        contacts.push(contact);
     }
+
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+    fermerPopup();
+    chargerDepuisLocalStorage();
 }
 
-function sauvegarderDansLocalStorage() {
-    const lignes = document.querySelectorAll("#contactsTable tbody tr");
-    const data = [];
 
-    lignes.forEach(tr => {
-        const ligne = [];
-        tr.querySelectorAll("td").forEach(td => {
-            ligne.push(td.textContent.trim());
-        });
-        data.push(ligne);
-    });
+function supprimerContact(index) {
+    const row = document.querySelectorAll("#tableBody tr")[index];
+    row.classList.add("fade-out");
 
-    localStorage.setItem("contacts", JSON.stringify(data));
+    setTimeout(() => {
+        const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+        contacts.splice(index, 1);
+        localStorage.setItem("contacts", JSON.stringify(contacts));
+        chargerDepuisLocalStorage();
+    }, 400);
 }
 
 function chargerDepuisLocalStorage() {
-    const tbody = document.querySelector("#contactsTable tbody");
-    const donnees = JSON.parse(localStorage.getItem("contacts"));
+    const tbody = document.getElementById("tableBody");
+    tbody.innerHTML = "";
+    const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
-    if (!donnees || !Array.isArray(donnees)) return;
-
-    tbody.innerHTML = ""; // vider le tableau
-
-    donnees.forEach(ligne => {
+    contacts.forEach((contact, index) => {
         const tr = document.createElement("tr");
 
-        ligne.forEach(valeur => {
+        contact.forEach(val => {
             const td = document.createElement("td");
-            td.textContent = valeur;
-            td.contentEditable = true;
+            td.textContent = val;
             tr.appendChild(td);
         });
 
-        const tdSuppr = document.createElement("td");
-        const bouton = document.createElement("button");
-        bouton.textContent = "🗑️";
-        bouton.onclick = function () {
-            tr.remove();
-            sauvegarderDansLocalStorage();
-        };
-        tdSuppr.appendChild(bouton);
-        tr.appendChild(tdSuppr);
+        const tdActions = document.createElement("td");
+
+        const btnEdit = document.createElement("button");
+        btnEdit.textContent = "✏️";
+        btnEdit.onclick = () => ouvrirPopup(contact, index);
+
+        const btnDelete = document.createElement("button");
+        btnDelete.textContent = "🗑️";
+        btnDelete.onclick = () => supprimerContact(index);
+
+        tdActions.appendChild(btnEdit);
+        tdActions.appendChild(btnDelete);
+        tr.appendChild(tdActions);
 
         tbody.appendChild(tr);
     });
 }
 
-
 function reinitialiserTableau() {
-    if (!confirm("Voulez-vous vraiment supprimer tous les contacts ?")) return;
+    if (confirm("Supprimer tous les contacts ?")) {
+        localStorage.removeItem("contacts");
+        chargerDepuisLocalStorage();
+    }
+}
 
-    localStorage.removeItem("contacts");
+function filtrerTableau() {
+    const filtre = document.getElementById("searchInput").value.toLowerCase();
+    const lignes = document.querySelectorAll("#tableBody tr");
 
-    const tbody = document.querySelector("#contactsTable tbody");
-    tbody.innerHTML = "";
-
-    // Ajouter une ligne vide (optionnel)
-    ajouterLigne();
+    lignes.forEach(tr => {
+        const texte = Array.from(tr.children)
+            .map(td => td.textContent.toLowerCase())
+            .join(" ");
+        tr.style.display = texte.includes(filtre) ? "" : "none";
+    });
 }

@@ -25,8 +25,9 @@
   </nav>
 
 <div style="margin: 20px;">
-    <button onclick="ajouterLigne()">Ajouter une ligne</button>
+    <button onclick="ouvrirPopup()">Ajouter un contact</button>
     <button onclick="reinitialiserTableau()">Réinitialiser le tableau</button>
+    <input type="text" id="searchInput" placeholder="Rechercher..." oninput="filtrerTableau()">
 </div>
 
 
@@ -40,14 +41,9 @@
             <td></td>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-        </tr>
-    </tbody>
+<tbody id="tableBody">
+</tbody>
+
     <tfoot>
         <tr>
             <td colspan="5">
@@ -69,7 +65,34 @@
     </p>
 </footer>
 
+<div id="popupForm" class="popup">
+    <div class="popup-content">
+        <h2 id="formTitle">Ajouter un contact</h2>
+
+        <input type="text" id="prenomInput" placeholder="Prénom">
+
+        <input type="text" id="nomInput" placeholder="Nom" required>
+        
+        <input type="email" id="emailInput" placeholder="Email"
+       title="Veuillez entrer une adresse email valide" 
+       required>
+        
+        <input type="text" id="numeroInput" placeholder="Numéro"
+       pattern="[0-9 ]+" 
+       title="Seuls les chiffres et espaces sont autorisés" 
+       oninput="this.value = this.value.replace(/[^0-9 ]/g, '')"
+       required>
+
+        <div class="popup-buttons">
+            <button onclick="fermerPopup()">Annuler</button>
+            <button onclick="enregistrerContact()">Enregistrer</button>
+        </div>
+    </div>
+</div>
+
+
 <script src="js/scripts.js"></script>
+
 </body>
 
 </body>
