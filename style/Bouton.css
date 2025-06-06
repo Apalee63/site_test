@@ -40,10 +40,31 @@ button:hover {
     transform: scale(1.05);
     
 }
+/* Apparence commune */
+.error, .success {
+    min-height: 20px;
+    margin-top: 15px;
+    font-size: 14px;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Coloration */
 .error {
     color: red;
-    margin-top: 15px;
 }
+
+.success {
+    color: green;
+}
+
+/* Classe pour activer l'affichage */
+.visible {
+    opacity: 1;
+}
+
+
 /* Animation de validation */
 @keyframes flashSuccess {
     0%, 100% { background-color: #3f51b5; }
@@ -61,4 +82,14 @@ button:hover {
 }
 .shake {
     animation: shake 0.3s ease;
+}
+.flex-containers {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.container input {
+    margin: 5px;
 }

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/Bouton.css">
     <link rel="icon" href="image/Kirby.png" type="image/png">
-    <title>Mon site-> Test</title>
+    <title>Mon site-> Accès</title>
 
 </head>
 <body>
@@ -22,16 +22,34 @@
     <a href="acces.html">Accès</a>
     <a href="graphique.html">Statistiques</a>
 </nav>
-<p style="padding: 35px; text-align: center;"></p>
-    <div class="container">
-        <h2>Accès mail</h2>
-        <input type="password" id="motdepasse" placeholder="Entrez le mot de passe">
-        <br>
-        <button id="validerBtn" onclick="verifierMotDePasse()">Valider</button>
-        <p id="messageErreur" class="error"></p>
-    </div>
+<p>Entrez une fois le mot de passe afin de le définir.</p>
+<div class="container">
+    <h2>Accès Agenda</h2>
+    <input type="password" id="motdepasseAgenda" placeholder="Entrez le mot de passe">
+    <button id="validerAgenda" onclick="verifierAcces('agenda')">Valider</button>
+    <p id="erreur_agenda" class="error"></p>
 
-    <script src="js/Mdp.js"></script>
+    <h4>Changer le mot de passe</h4>
+    <input type="password" id="ancien_agenda" placeholder="Ancien mot de passe">
+    <input type="password" id="nouveau_agenda" placeholder="Nouveau mot de passe">
+    <button onclick="changerMotDePasse('agenda')">Changer</button>
+    <p id="changeErreur_agenda" class="error"></p>
+</div>
+
+<div class="container">
+    <h2>Accès Bloc-note</h2>
+    <input type="password" id="motdepasseBloc" placeholder="Entrez le mot de passe">
+    <button id="validerBloc" onclick="verifierAcces('bloc')">Valider</button>
+    <p id="erreur_bloc" class="error"></p>
+
+    <h4>Changer le mot de passe</h4>
+    <input type="password" id="ancien_bloc" placeholder="Ancien mot de passe">
+    <input type="password" id="nouveau_bloc" placeholder="Nouveau mot de passe">
+    <button onclick="changerMotDePasse('bloc')">Changer</button>
+    <p id="changeErreur_bloc" class="error"></p>
+</div>
+
+<script src="js/Mdp.js"></script>
 
      <footer class="footer">
       <p style="font-size: 20px;">Le site de <a href="https://soeman.fr/" target="_blank">Soeman
