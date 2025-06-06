@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.verifierAcces = async function(zone) {
     const idInput    = zone === "agenda" ? "motdepasseAgenda" : "motdepasseBloc";
     const storageKey = zone === "agenda" ? "mdp_agenda"       : "mdp_bloc";
-    const page       = zone === "agenda" ? "agenda.html"      : "bloc_note.html";
+    const page       = zone === "agenda" ? "agenda.html"      : "Bloc_note.html";
     const input      = document.getElementById(idInput);
     const message    = document.getElementById(`erreur_${zone}`);
     const password   = input.value.trim();
