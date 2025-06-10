@@ -9,11 +9,20 @@
 </head>
 
 <body>
+  
 <header class="header-title">
   <div class="header-container">
     <a href="https://soeman.fr/" target="_blank" class="logo"><img src="//tech-ethic.com/wp-content/uploads/2024/08/SoemanGroup_logo-principal_Web.png" alt="soeman_group" class="logo"></a>
     <h1>Page d'accueil</h1>
   </div>
+  <div id="auth-container">
+  <input type="email" id="email" placeholder="Email" />
+  <input type="password" id="password" placeholder="Mot de passe" />
+  <button onclick="inscription(document.getElementById('email').value, document.getElementById('password').value)">Inscription</button>
+  <button onclick="connexion(document.getElementById('email').value, document.getElementById('password').value)">Connexion</button>
+  <button onclick="deconnexion()">Déconnexion</button>
+</div>
+
 </header>
   <div id="nav"></div>
 
@@ -24,7 +33,7 @@
         <p>
           Soeman Group est une entreprise innovante spécialisée dans le développement de solutions CRM & ERP complètes.  
           Notre plateforme Soeman offre tous les outils nécessaires à la gestion de votre entreprise :  
-          contacts, agenda, bloc-note, statistiques, et bien <a href="Titanfall.html" class="invisible-link">plus</a> encore.
+          contacts, agenda, bloc-note, statistiques, et bien plus encore.
         </p>
         <a href="https://soeman.fr/" target="_blank" class="btn-primary">Visitez notre site officiel</a>
       </div>
@@ -71,7 +80,24 @@
 
   <div id="footer"></div>
   <script src="js/include-fragment.js"></script>
+  <script src="js/auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
 
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBxbReQ0eowOvCjIypf7xClkYmlBDVoL6Y",
+  authDomain: "site-test-28e25.firebaseapp.com",
+  projectId: "site-test-28e25",
+  storageBucket: "site-test-28e25.firebasestorage.app",
+  messagingSenderId: "840111898434",
+  appId: "1:840111898434:web:a1d3666c629de7ce8c12db",
+  measurementId: "G-0QF4TDR8V7"
+};
+
+  firebase.initializeApp(firebaseConfig);
+</script>
 </body>
 
 </html>
