@@ -16,6 +16,8 @@ const firebaseConfig = {
   measurementId: "G-0QF4TDR8V7"
 };
 
+resr = fetch("192.168.1.108")
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
